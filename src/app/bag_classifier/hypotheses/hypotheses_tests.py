@@ -4,7 +4,7 @@ import numpy as np
 
 from scipy import stats
 
-from src.app.bag_classifier.constants import alpha
+from app.bag_classifier.constants import alpha
 
 logger = logging.getLogger(__name__)
 

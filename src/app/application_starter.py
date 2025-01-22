@@ -2,9 +2,9 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from src.app.bag_classifier.classifier import BagsClassifierInitializer
-from src.app.logging.logger_settings import set_logger_config
-from src.app.view.bag_classifier import ImageClassifierApp
+from app.bag_classifier.classifier import BagsClassifierInitializer
+from app.logging.logger_settings import set_logger_config
+from app.view.bag_classifier import ImageClassifierApp
 
 
 def start_application():

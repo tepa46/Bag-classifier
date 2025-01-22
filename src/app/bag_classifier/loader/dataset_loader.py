@@ -2,7 +2,7 @@ import os
 
 from kaggle import KaggleApi
 
-from src.app.bag_classifier.constants import datasetKagglePath, datasetSavePath
+from app.bag_classifier.constants import datasetKagglePath, datasetSavePath
 
 
 def is_dataset_loaded():

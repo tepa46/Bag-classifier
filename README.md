@@ -42,7 +42,19 @@
 <img width="395" alt="image" src="https://github.com/user-attachments/assets/8f15fb9d-31c2-4a20-883b-20714104b1f0" />
 
 
+### Документация
 
+Установите `pdoc` - инструмент для автоматической генерации документации в Python
+
+```
+pip install pdoc3
+```
+
+Выполните команду
+
+```
+pdoc --http localhost:8080 src
+```
 
 
 

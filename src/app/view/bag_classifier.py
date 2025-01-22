@@ -2,8 +2,8 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog
 
-from src.app.view.api.classifier import Classifier, ClassifierInitializer
-from src.app.view.constants import ApplicationName, WindowHeight, WindowWidth, LoadingWindowLabel, ClassifyImageLabel, \
+from app.view.api.classifier import Classifier, ClassifierInitializer
+from app.view.constants import ApplicationName, WindowHeight, WindowWidth, LoadingWindowLabel, ClassifyImageLabel, \
     ClassificationActionLabel
 
 

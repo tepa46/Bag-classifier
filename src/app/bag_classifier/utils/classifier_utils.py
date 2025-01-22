@@ -1,6 +1,6 @@
-from src.app.bag_classifier.constants import garbageBagsClassPath, paperBagsClassPath, plasticBagsClassPath, \
+from app.bag_classifier.constants import garbageBagsClassPath, paperBagsClassPath, plasticBagsClassPath, \
     datasetClasses
-from src.app.bag_classifier.utils.images_utils import load_images_from_folder
+from app.bag_classifier.utils.images_utils import load_images_from_folder
 
 
 def collect_images_info():

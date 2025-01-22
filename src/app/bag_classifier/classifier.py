@@ -4,13 +4,13 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
-from src.app.bag_classifier.constants import datasetClasses, randomState, datasetTestPart
-from src.app.bag_classifier.hypotheses.hypotheses import collect_image_features
-from src.app.bag_classifier.loader.dataset_loader import load_dataset
-from src.app.bag_classifier.stats.classifier_estimator import estimate_classifier
-from src.app.bag_classifier.utils.classifier_utils import collect_images_info
-from src.app.bag_classifier.utils.images_utils import load_image_from_filepath
-from src.app.view.api.classifier import Classifier, ClassifierInitializer
+from app.bag_classifier.constants import datasetClasses, randomState, datasetTestPart
+from app.bag_classifier.hypotheses.hypotheses import collect_image_features
+from app.bag_classifier.loader.dataset_loader import load_dataset
+from app.bag_classifier.stats.classifier_estimator import estimate_classifier
+from app.bag_classifier.utils.classifier_utils import collect_images_info
+from app.bag_classifier.utils.images_utils import load_image_from_filepath
+from app.view.api.classifier import Classifier, ClassifierInitializer
 
 logger = logging.getLogger(__name__)
 

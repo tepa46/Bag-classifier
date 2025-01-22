@@ -1,0 +1,32 @@
+[project]
+name = "bag-classifier"
+version = "0.1.0"
+description = "Bag image classifier"
+authors = [
+    { name = "Arseniy Baytenov", email = "arsenebaitenov@gmail.com" },
+    { name = "Dmitrii Pavlushkin", email = "pavlushkin.dima1785@gmail.com" },
+    { name = "Kirill Shishin", email = "kirill.a.shishin@gmail.com" }
+]
+dependencies = [
+    "opencv-python>=4.10.0.84",
+    "scipy>=1.14.1",
+    "kaggle>=1.5.15",
+    "scikit-learn>=1.6.1",
+    "PyQt5>=5.15.0"
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/app"]

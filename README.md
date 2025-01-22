@@ -23,3 +23,15 @@
 ### Датасет 
 
 [Plastic - Paper - Garbage Bag Synthetic Images](https://www.kaggle.com/datasets/vencerlanz09/plastic-paper-garbage-bag-synthetic-images?resource=download)
+
+### Иллюстрация работы инструмента
+
+<img width="394" alt="image" src="https://github.com/user-attachments/assets/20e93bac-6b21-4355-a45f-3dbd2b9fef27" />
+
+<img width="395" alt="image" src="https://github.com/user-attachments/assets/8f15fb9d-31c2-4a20-883b-20714104b1f0" />
+
+
+
+
+
+

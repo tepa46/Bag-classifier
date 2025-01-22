@@ -4,10 +4,10 @@ import numpy as np
 
 from src.app.bag_classifier.constants import garbageBagsClassPath, paperBagsClassPath, \
     plasticBagsClassPath
-from src.app.bag_classifier.hypotheses.hypotheses import hypothesis_1_statistic, hypothesis_2_statistic, \
-    hypothesis_5_statistic, hypothesis_4_statistic, hypothesis_3_statistic, \
-    hypothesis_6_statistic, hypothesis_7_statistic, hypothesis_9_statistic, hypothesis_8_statistic, \
-    hypothesis_10_statistic
+from src.app.bag_classifier.hypotheses.hypotheses import get_hypothesis_1_feature_value, get_hypothesis_2_feature_value, \
+    get_hypothesis_5_feature_value, get_hypothesis_4_feature_value, get_hypothesis_3_feature_value, \
+    get_hypothesis_6_feature_value, get_hypothesis_7_feature_value, get_hypothesis_9_feature_value, get_hypothesis_8_feature_value, \
+    get_hypothesis_10_feature_value
 from src.app.bag_classifier.hypotheses.hypotheses_tests import utest, kstest
 from src.app.bag_classifier.utils.images_utils import load_images_from_folder
 
@@ -75,7 +75,7 @@ def verify_hypothesis_1():
     this_bags_paths = [garbageBagsClassPath]
     other_bags_paths = [paperBagsClassPath, plasticBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_1_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_1_feature_value)
 
 
 # Пластиковые пакеты и мусорные пакеты часто содержат яркие блики
@@ -84,7 +84,7 @@ def verify_hypothesis_2():
     this_bags_paths = [garbageBagsClassPath, plasticBagsClassPath]
     other_bags_paths = [paperBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_2_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_2_feature_value)
 
 
 # На изображениях с бумажными пакетами много длинных отрезков
@@ -93,7 +93,7 @@ def verify_hypothesis_3():
     this_bags_paths = [paperBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, plasticBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_3_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_3_feature_value)
 
 
 # Бумажные пакеты имеют более насыщенные цвета
@@ -102,7 +102,7 @@ def verify_hypothesis_4():
     this_bags_paths = [paperBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, plasticBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_4_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_4_feature_value)
 
 
 # Бумажные пакеты часто имеют светлокоричневый цвет
@@ -111,7 +111,7 @@ def verify_hypothesis_5():
     this_bags_paths = [paperBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, plasticBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_5_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_5_feature_value)
 
 
 # Бумажные пакеты --- матовые
@@ -120,7 +120,7 @@ def verify_hypothesis_6():
     this_bags_paths = [paperBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, plasticBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_6_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_6_feature_value)
 
 
 # Пластиковые пакеты имеют яркие цвета
@@ -129,7 +129,7 @@ def verify_hypothesis_7():
     this_bags_paths = [plasticBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, paperBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_7_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_7_feature_value)
 
 
 # Из-за сильно выраженных складок на мусорных пакетах, найденные контуры мусорных пакетов по площади будут меньше,
@@ -139,7 +139,7 @@ def verify_hypothesis_8():
     this_bags_paths = [garbageBagsClassPath]
     other_bags_paths = [plasticBagsClassPath, paperBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_8_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_8_feature_value)
 
 
 # Контуры бумажных и пластиковых пакетов часто имеют меньше углов
@@ -148,7 +148,7 @@ def verify_hypothesis_9():
     this_bags_paths = [plasticBagsClassPath, paperBagsClassPath]
     other_bags_paths = [garbageBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_9_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_9_feature_value)
 
 
 # Пластиковые пакеты из-за своей прозрачности могут иметь участки ненасыщенного цвета
@@ -157,4 +157,4 @@ def verify_hypothesis_10():
     this_bags_paths = [plasticBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, paperBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, hypothesis_10_statistic)
+    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_10_feature_value)

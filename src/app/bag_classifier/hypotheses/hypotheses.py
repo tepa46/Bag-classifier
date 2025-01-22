@@ -14,23 +14,23 @@ def collect_image_features(image):
     """
 
     statistics = [
-        hypothesis_1_statistic(image),
-        hypothesis_2_statistic(image),
-        hypothesis_3_statistic(image),
-        hypothesis_4_statistic(image),
-        hypothesis_5_statistic(image),
-        hypothesis_6_statistic(image),
-        hypothesis_7_statistic(image),
-        hypothesis_8_statistic(image),
-        hypothesis_9_statistic(image),
-        hypothesis_10_statistic(image),
+        get_hypothesis_1_feature_value(image),
+        get_hypothesis_2_feature_value(image),
+        get_hypothesis_3_feature_value(image),
+        get_hypothesis_4_feature_value(image),
+        get_hypothesis_5_feature_value(image),
+        get_hypothesis_6_feature_value(image),
+        get_hypothesis_7_feature_value(image),
+        get_hypothesis_8_feature_value(image),
+        get_hypothesis_9_feature_value(image),
+        get_hypothesis_10_feature_value(image),
     ]
 
     return statistics
 
 
 # Мусорные пакеты имеют темные цвета
-def hypothesis_1_statistic(image):
+def get_hypothesis_1_feature_value(image):
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     black_mask = gray_image < 20
@@ -39,7 +39,7 @@ def hypothesis_1_statistic(image):
 
 
 # Пластиковые пакеты и мусорные пакеты часто содержат яркие блики
-def hypothesis_2_statistic(image):
+def get_hypothesis_2_feature_value(image):
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     grad_x = cv2.Sobel(gray_image, cv2.CV_64F, 1, 0, ksize=3)
@@ -52,7 +52,7 @@ def hypothesis_2_statistic(image):
 
 
 # На изображениях с бумажными пакетами много длинных отрезков
-def hypothesis_3_statistic(image):
+def get_hypothesis_3_feature_value(image):
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray_image, 50, 150)
     lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 40, minLineLength=50, maxLineGap=2)
@@ -63,7 +63,7 @@ def hypothesis_3_statistic(image):
 
 
 # Бумажные пакеты имеют более насыщенные цвета
-def hypothesis_4_statistic(image):
+def get_hypothesis_4_feature_value(image):
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     lower_saturation = 191
@@ -73,7 +73,7 @@ def hypothesis_4_statistic(image):
 
 
 # Бумажные пакеты часто имеют светлокоричневый цвет
-def hypothesis_5_statistic(image):
+def get_hypothesis_5_feature_value(image):
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     lower_brown = np.array([15, 50, 50])
@@ -84,7 +84,7 @@ def hypothesis_5_statistic(image):
 
 
 # Бумажные пакеты --- матовые
-def hypothesis_6_statistic(image):
+def get_hypothesis_6_feature_value(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     laplacian_var = cv2.Laplacian(gray, cv2.CV_64F).var()
@@ -93,7 +93,7 @@ def hypothesis_6_statistic(image):
 
 
 # Пластиковые пакеты имеют яркие цвета (желтый, синий, белый)
-def hypothesis_7_statistic(image):
+def get_hypothesis_7_feature_value(image):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     yellow_lower = np.array([20, 100, 100])
@@ -118,7 +118,7 @@ def hypothesis_7_statistic(image):
 
 # Из-за сильно выраженных складок на мусорных пакетах, найденные контуры мусорных пакетов по площади будут меньше,
 # чем контуры пластиковых и бумажных пакетов
-def hypothesis_8_statistic(image):
+def get_hypothesis_8_feature_value(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray, 50, 150)
     contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -129,7 +129,7 @@ def hypothesis_8_statistic(image):
 
 
 # Контуры бумажных и пластиковых пакетов имеют меньше углов
-def hypothesis_9_statistic(image):
+def get_hypothesis_9_feature_value(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray, 50, 150)
     contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -142,7 +142,7 @@ def hypothesis_9_statistic(image):
 
 
 # Пластиковые пакеты из-за своей прозрачности могут иметь участки ненасыщенного цвета
-def hypothesis_10_statistic(image):
+def get_hypothesis_10_feature_value(image):
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     lower_saturation = 40

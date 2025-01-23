@@ -1,10 +1,10 @@
 import os
 
-datasetKagglePath = "vencerlanz09/plastic-paper-garbage-bag-synthetic-images"
-datasetSavePath = "./dataset"
+from app.constants import datasetSavePath
+
 datasetClasses = ["garbage", "paper", "plastic"]
 
-datasetImageClassesPath = 'dataset/Bag Classes/Bag Classes'
+datasetImageClassesPath = os.path.join(datasetSavePath, "Bag Classes/Bag Classes")
 
 garbageBagsClassPath = os.path.join(datasetImageClassesPath, "Garbage Bag Images")
 paperBagsClassPath = os.path.join(datasetImageClassesPath, "Paper Bag Images")

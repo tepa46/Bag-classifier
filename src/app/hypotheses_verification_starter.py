@@ -19,4 +19,5 @@ def start_verification():
 
 if __name__ == "__main__":
     set_logger_config()
+    load_dataset()
     start_verification()

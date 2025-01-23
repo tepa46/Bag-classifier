@@ -6,7 +6,6 @@ from sklearn.model_selection import train_test_split
 
 from app.bag_classifier.constants import datasetClasses, randomState, datasetTestPart
 from app.bag_classifier.hypotheses.hypotheses import collect_image_features
-from app.bag_classifier.loader.dataset_loader import load_dataset
 from app.bag_classifier.stats.classifier_estimator import estimate_classifier
 from app.bag_classifier.utils.classifier_utils import collect_images_info
 from app.bag_classifier.utils.images_utils import load_image_from_filepath
@@ -62,11 +61,8 @@ class BagsClassifierInitializer(ClassifierInitializer):
 
     def initialize_classifier(self):
         """
-        Loads the dataset, trains the `BagsClassifier`, and evaluates its performance.
+        Trains the `BagsClassifier`, and evaluates its performance.
         """
-
-        load_dataset()
-        logger.info("$ClassifierInitializer$ dataset was loaded")
 
         images_info = collect_images_info()
         logger.info("$ClassifierInitializer$ image info was collected")

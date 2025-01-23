@@ -1,8 +1,11 @@
 import os
+import logging
 
 from kaggle import KaggleApi
 
 from app.bag_classifier.constants import datasetKagglePath, datasetSavePath
+
+logger = logging.getLogger(__name__)
 
 
 def is_dataset_loaded():

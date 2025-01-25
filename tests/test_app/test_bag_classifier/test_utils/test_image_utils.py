@@ -1,11 +1,5 @@
-import pytest
 from unittest.mock import patch, MagicMock
-import os
-import cv2
-from app.bag_classifier.utils.images_utils import (
-    load_images_from_folder,
-    load_image_from_filepath,
-)
+from app.bag_classifier.utils.images_utils import load_image_from_filepath
 
 
 @patch("app.bag_classifier.utils.images_utils.cv2.imread")

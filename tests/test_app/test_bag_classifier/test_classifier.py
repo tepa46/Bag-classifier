@@ -1,6 +1,5 @@
 import pytest
-from app.bag_classifier.classifier import BagsClassifierInitializer
-from tests.test_app.test_view.test_api.test_classifier import TestClassifierInitializer
+
 
 class MockedRandomForestClassifier:
     def __init__(
@@ -30,19 +29,25 @@ class MockedRandomForestClassifier:
 
     def predict_proba(self, X):
         return [["first mock", "second mock", "third mock"]]
-    
+
     def fit(self, X, y, sample_weight=None):
         return
-    
+
+
 @pytest.fixture(autouse=True)
 def mock_random_forest_classsifier(mocker):
-    mocker.patch("app.bag_classifier.classifier.RandomForestClassifier", MockedRandomForestClassifier)
+    mocker.patch(
+        "app.bag_classifier.classifier.RandomForestClassifier",
+        MockedRandomForestClassifier,
+    )
+
 
 @pytest.fixture(autouse=True)
 def mock_utils(mocker):
     # TODO: make mocks for utils and hypos like MokedRandomForestClassifier
     # e. g. mocker.mock("app.bag_classifier.utils.say_52", mocked_say_52)
     return
+
 
 # class TestBagsClassifierInitializer(TestClassifierInitializer):
 #     @pytest.mark.usefixtures("mock_random_forest_classsifier")

@@ -50,8 +50,10 @@ class BagsClassifier(Classifier):
             f"{datasetClasses[2]}: {result[0][2]}"
         )
 
-        logger.info(f"$Classifier$ Image {self.classifier_image_path} class was predicted."
-                    f" Prediction results: {self.classifier_answer}")
+        logger.info(
+            f"$Classifier$ Image {self.classifier_image_path} class was predicted."
+            f" Prediction results: {self.classifier_answer}"
+        )
 
 
 class BagsClassifierInitializer(ClassifierInitializer):
@@ -74,8 +76,12 @@ class BagsClassifierInitializer(ClassifierInitializer):
             X.append(collect_image_features(image))
             Y.append(image_class)
 
-        X_train, X_test, Y_train, Y_test = train_test_split(np.array(X), np.array(Y), test_size=datasetTestPart,
-                                                            random_state=randomState)
+        X_train, X_test, Y_train, Y_test = train_test_split(
+            np.array(X),
+            np.array(Y),
+            test_size=datasetTestPart,
+            random_state=randomState,
+        )
 
         self.classifier = BagsClassifier()
         self.classifier.classifier.fit(X_train, Y_train)

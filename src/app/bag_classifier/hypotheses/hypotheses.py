@@ -44,7 +44,7 @@ def get_hypothesis_2_feature_value(image):
 
     grad_x = cv2.Sobel(gray_image, cv2.CV_64F, 1, 0, ksize=3)
     grad_y = cv2.Sobel(gray_image, cv2.CV_64F, 0, 1, ksize=3)
-    grad_magnitude = np.sqrt(grad_x ** 2 + grad_y ** 2)
+    grad_magnitude = np.sqrt(grad_x**2 + grad_y**2)
 
     bright_spots = grad_magnitude > 40
 
@@ -67,7 +67,7 @@ def get_hypothesis_4_feature_value(image):
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     lower_saturation = 191
-    mask = (hsv_image[:, :, 1] > lower_saturation)
+    mask = hsv_image[:, :, 1] > lower_saturation
 
     return np.count_nonzero(mask)
 
@@ -136,7 +136,9 @@ def get_hypothesis_9_feature_value(image):
 
     contours = sorted(contours, key=cv2.contourArea, reverse=True)
 
-    approx = cv2.approxPolyDP(contours[0], 0.0005 * cv2.arcLength(contours[0], True), True)
+    approx = cv2.approxPolyDP(
+        contours[0], 0.0005 * cv2.arcLength(contours[0], True), True
+    )
 
     return len(approx)
 
@@ -147,6 +149,6 @@ def get_hypothesis_10_feature_value(image):
 
     lower_saturation = 40
 
-    mask = (hsv_image[:, :, 1] < lower_saturation)
+    mask = hsv_image[:, :, 1] < lower_saturation
 
     return np.count_nonzero(mask)

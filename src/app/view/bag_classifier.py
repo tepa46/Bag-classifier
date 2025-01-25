@@ -3,23 +3,29 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog
 
 from app.view.api.classifier import Classifier, ClassifierInitializer
-from app.view.constants import ApplicationName, WindowHeight, WindowWidth, LoadingWindowLabel, ClassifyImageLabel, \
-    ClassificationActionLabel
+from app.view.constants import (
+    ApplicationName,
+    WindowHeight,
+    WindowWidth,
+    LoadingWindowLabel,
+    ClassifyImageLabel,
+    ClassificationActionLabel,
+)
 
 
 class ImageClassifierApp(QWidget):
     """
-        Main application window for the Image Classifier.
+    Main application window for the Image Classifier.
 
-        Attributes:
-            _loading_widget (QLabel): A widget displaying a loading message during classifier initialization.
-            _classify_button (QPushButton): A button to trigger the image classification action.
-            _image_widget (QLabel): A widget to display the selected image.
-            _classification_action_widget (QLabel): A widget showing the classification action message.
-            _classification_result_widget (QLabel): A widget displaying the classification results.
-            _classifier_initializer (ClassifierInitializer): The instance responsible for initializing the classifier.
-            _classifier (Classifier): The classifier used to classify images.
-        """
+    Attributes:
+        _loading_widget (QLabel): A widget displaying a loading message during classifier initialization.
+        _classify_button (QPushButton): A button to trigger the image classification action.
+        _image_widget (QLabel): A widget to display the selected image.
+        _classification_action_widget (QLabel): A widget showing the classification action message.
+        _classification_result_widget (QLabel): A widget displaying the classification results.
+        _classifier_initializer (ClassifierInitializer): The instance responsible for initializing the classifier.
+        _classifier (Classifier): The classifier used to classify images.
+    """
 
     _loading_widget: QLabel
     _classify_button: QPushButton
@@ -184,7 +190,9 @@ class ImageClassifierApp(QWidget):
 
         del self.classification_result_widget
 
-        self.layout.addWidget(self.classification_action_widget, alignment=Qt.AlignCenter)
+        self.layout.addWidget(
+            self.classification_action_widget, alignment=Qt.AlignCenter
+        )
 
     def show_classification_results_screen(self):
         """
@@ -193,7 +201,9 @@ class ImageClassifierApp(QWidget):
 
         del self.classification_action_widget
 
-        self.layout.addWidget(self.classification_result_widget, alignment=Qt.AlignCenter)
+        self.layout.addWidget(
+            self.classification_result_widget, alignment=Qt.AlignCenter
+        )
 
     def classify_image_action(self):
         """
@@ -202,7 +212,9 @@ class ImageClassifierApp(QWidget):
         Once an image is selected, it updates the image widget and starts the classification process.
         """
 
-        file_path, _ = QFileDialog.getOpenFileName(self, 'Choose image', '', 'JPEG Files (*.jpg *.jpeg)')
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, "Choose image", "", "JPEG Files (*.jpg *.jpeg)"
+        )
 
         if file_path:
             pixmap = QPixmap(file_path)

@@ -1,5 +1,9 @@
-from app.bag_classifier.constants import garbageBagsClassPath, paperBagsClassPath, plasticBagsClassPath, \
-    datasetClasses
+from app.bag_classifier.constants import (
+    garbageBagsClassPath,
+    paperBagsClassPath,
+    plasticBagsClassPath,
+    datasetClasses,
+)
 from app.bag_classifier.utils.images_utils import load_images_from_folder
 
 
@@ -16,9 +20,13 @@ def collect_images_info():
 
     images_info = []
 
-    images_info.extend(collect_class_images_info(garbageBagsClassPath, datasetClasses[0]))
+    images_info.extend(
+        collect_class_images_info(garbageBagsClassPath, datasetClasses[0])
+    )
     images_info.extend(collect_class_images_info(paperBagsClassPath, datasetClasses[1]))
-    images_info.extend(collect_class_images_info(plasticBagsClassPath, datasetClasses[2]))
+    images_info.extend(
+        collect_class_images_info(plasticBagsClassPath, datasetClasses[2])
+    )
 
     return images_info
 

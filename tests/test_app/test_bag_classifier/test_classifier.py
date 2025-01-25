@@ -1,6 +1,6 @@
 import pytest
 from app.bag_classifier.classifier import BagsClassifierInitializer
-from test_app.test_view.test_api.test_classifier import TestClassifierInitializer
+from tests.test_app.test_view.test_api.test_classifier import TestClassifierInitializer
 
 class MockedRandomForestClassifier:
     def __init__(

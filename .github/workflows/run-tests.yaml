@@ -26,5 +26,8 @@ jobs:
           echo "{\"username\": \"${{ secrets.KAGGLE_USERNAME }}\", \"key\": \"${{ secrets.KAGGLE_API_KEY }}\"}" > ~/.config/kaggle/kaggle.json
           chmod 600 ~/.config/kaggle/kaggle.json
 
-      - name: Run tests
+      - name: Run hypotheses verification tests
         run: rye run python3 src/app/hypotheses_verification_starter.py
+
+      - name: Run tests
+        run: rye run pytest

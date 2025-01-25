@@ -35,5 +35,3 @@ def load_image_from_filepath(filepath):
     """
 
     return cv2.imread(filepath)
-
-

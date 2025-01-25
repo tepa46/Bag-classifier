@@ -2,13 +2,23 @@ import logging
 
 import numpy as np
 
-from app.bag_classifier.constants import garbageBagsClassPath, paperBagsClassPath, \
-    plasticBagsClassPath
-from app.bag_classifier.hypotheses.hypotheses import get_hypothesis_1_feature_value, get_hypothesis_2_feature_value, \
-    get_hypothesis_5_feature_value, get_hypothesis_4_feature_value, get_hypothesis_3_feature_value, \
-    get_hypothesis_6_feature_value, get_hypothesis_7_feature_value, get_hypothesis_9_feature_value, \
-    get_hypothesis_8_feature_value, \
-    get_hypothesis_10_feature_value
+from app.bag_classifier.constants import (
+    garbageBagsClassPath,
+    paperBagsClassPath,
+    plasticBagsClassPath,
+)
+from app.bag_classifier.hypotheses.hypotheses import (
+    get_hypothesis_1_feature_value,
+    get_hypothesis_2_feature_value,
+    get_hypothesis_5_feature_value,
+    get_hypothesis_4_feature_value,
+    get_hypothesis_3_feature_value,
+    get_hypothesis_6_feature_value,
+    get_hypothesis_7_feature_value,
+    get_hypothesis_9_feature_value,
+    get_hypothesis_8_feature_value,
+    get_hypothesis_10_feature_value,
+)
 from app.bag_classifier.hypotheses.hypotheses_tests import utest, kstest
 from app.bag_classifier.utils.images_utils import load_images_from_folder
 
@@ -162,4 +172,6 @@ def verify_hypothesis_10():
     this_bags_paths = [plasticBagsClassPath]
     other_bags_paths = [garbageBagsClassPath, paperBagsClassPath]
 
-    verify_hypothesis(this_bags_paths, other_bags_paths, get_hypothesis_10_feature_value)
+    verify_hypothesis(
+        this_bags_paths, other_bags_paths, get_hypothesis_10_feature_value
+    )

@@ -36,3 +36,10 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/app"]
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+    "src/**/__init__.py",
+    "src/**/constants.py"
+]

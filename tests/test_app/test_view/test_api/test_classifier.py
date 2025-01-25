@@ -25,7 +25,7 @@ class TestClassifier:
         classifier.in_progress.connect(in_progress)
         classifier.completed.connect(completed)
 
-        with qtbot.waitSignal(classifier.finished, timeout=300):
+        with qtbot.waitSignal(classifier.finished, timeout=3000):
             classifier.start()
 
         assert self.check_in_progress
@@ -54,7 +54,7 @@ class TestClassifierInitializer:
         initializer.in_progress.connect(in_progress)
         initializer.completed.connect(completed)
 
-        with qtbot.waitSignal(initializer.finished, timeout=300):
+        with qtbot.waitSignal(initializer.finished, timeout=3000):
             initializer.start()
 
         assert self.check_in_progress

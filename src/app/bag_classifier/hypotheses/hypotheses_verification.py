@@ -81,7 +81,7 @@ def verify_hypothesis(this_paths, other_paths, feature_fun):
 
     if not results["u-test"] or not results["ks-test"]:
         # This is a forced failure for CI
-        raise Exception(f"$Hypotheses verification was failed")
+        raise Exception("$Hypotheses verification was failed")
 
 
 # Мусорные пакеты имеют темные цвета

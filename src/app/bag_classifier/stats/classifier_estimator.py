@@ -15,7 +15,7 @@ def estimate_classifier(classifier, X_test, Y_test):
     accuracy = accuracy_score(Y_test, Y_pred)
     logger.info(f"$Classifier estimation$ Accuracy: {accuracy:.4f}")
 
-    f1 = f1_score(Y_test, Y_pred, average='weighted')
+    f1 = f1_score(Y_test, Y_pred, average="weighted")
     print(f"Weighted F1-score: {f1:.2f}")
 
     f1_per_class = f1_score(Y_test, Y_pred, average=None)

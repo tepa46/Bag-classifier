@@ -1,7 +1,6 @@
-import pytest
-from pytestqt import qtbot
 from abc import abstractmethod
 from app.view.api.classifier import Classifier, ClassifierInitializer
+
 
 class TestClassifier:
     @abstractmethod
@@ -13,12 +12,14 @@ class TestClassifier:
             classifier = self.classifier()
         except NotImplementedError:
             return
-        
+
         self.check_in_progress = False
+
         def in_progress():
             self.check_in_progress = True
-        
+
         self.check_completed = False
+
         def completed():
             self.check_completed = True
 
@@ -32,22 +33,27 @@ class TestClassifier:
         assert self.check_in_progress
         assert classifier.classifier_answer is not None
 
+
 class TestClassifierInitializer:
     @abstractmethod
     def classifier_initializer(self) -> ClassifierInitializer:
-        raise NotImplementedError("You must implement the ClassifierInitializer fixture")
+        raise NotImplementedError(
+            "You must implement the ClassifierInitializer fixture"
+        )
 
     def test_running(self, qtbot):
         try:
             initializer = self.classifier_initializer()
         except NotImplementedError:
             return
-        
+
         self.check_in_progress = False
+
         def in_progress():
             self.check_in_progress = True
-        
+
         self.check_completed = False
+
         def completed():
             self.check_completed = True
 

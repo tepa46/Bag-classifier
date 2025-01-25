@@ -45,5 +45,6 @@ omit = [
     "src/**/constants.py",
     "src/app/application_starter.py",
     "hypotheses_verification_starter.py",
-    "src/app/bag_classifier/hypotheses/*"
+    "src/app/bag_classifier/hypotheses/*",
+    "src/app/view/bag_classifier.py"
 ]

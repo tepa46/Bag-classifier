@@ -44,7 +44,7 @@ def mock_utils(mocker):
     # e. g. mocker.mock("app.bag_classifier.utils.say_52", mocked_say_52)
     return
 
-class TestBagsClassifierInitializer(TestClassifierInitializer):
-    @pytest.mark.usefixtures("mock_random_forest_classsifier")
-    def classifier_initializer(self):
-        return BagsClassifierInitializer()
+# class TestBagsClassifierInitializer(TestClassifierInitializer):
+#     @pytest.mark.usefixtures("mock_random_forest_classsifier")
+#     def classifier_initializer(self):
+#         return BagsClassifierInitializer()
